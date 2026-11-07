@@ -932,31 +932,56 @@ document.addEventListener("DOMContentLoaded", () => {
 </audio>
 
 <script>
-(function () {
-  const audio = document.getElementById("nadaswaramAudio");
 
-  audio.volume = 0.5;
+<!-- Nadaswaram Background Music -->
+<audio id="nadaswaramMusic" loop preload="auto">
+  <source src="nadaswaram.mp3" type="audio/mpeg">
+</audio>
 
-  function playMusic() {
-    if (!audio.paused) return;
+<button id="musicButton" onclick="toggleNadaswaram()"
+  style="
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    z-index:9999;
+    background:#8a1d2e;
+    color:white;
+    border:none;
+    border-radius:50px;
+    padding:13px 20px;
+    cursor:pointer;
+    box-shadow:0 3px 12px #0003;">
+  🔇 Play Music
+</button>
 
-    audio.play().catch(() => {
-      // The browser may block automatic audio.
-    });
+<script>
+const nadaswaram = document.getElementById("nadaswaramMusic");
+const musicButton = document.getElementById("musicButton");
+
+nadaswaram.volume = 0.4;
+
+function toggleNadaswaram() {
+  if (nadaswaram.paused) {
+    nadaswaram.play().then(() => {
+      musicButton.textContent = "🔊 Pause Music";
+    }).catch(console.error);
+  } else {
+    nadaswaram.pause();
+    musicButton.textContent = "🔇 Play Music";
   }
+}
 
-  // Try playing when the invitation opens.
-  window.addEventListener("load", playMusic);
-
-  // If autoplay is blocked, start on first interaction.
-  // No music button is displayed.
-  ["pointerdown", "touchstart", "keydown"].forEach(type => {
-    document.addEventListener(type, playMusic, {
-      passive: true
-    });
+// Try to play music when the page opens
+window.addEventListener("load", () => {
+  nadaswaram.play().then(() => {
+    musicButton.textContent = "🔊 Pause Music";
+  }).catch(() => {
+    // Browser blocks automatic audio until interaction
+    musicButton.textContent = "🔇 Play Music";
   });
-})();
+});
 </script>
+
 
   
 </body>
