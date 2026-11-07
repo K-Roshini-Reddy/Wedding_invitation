@@ -1,852 +1,880 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Roshini & Sai Deepak Wedding Invitation</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Telugu:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --maroon:#8c1f31;
-      --cream:#fbf7ee;
-      --bg:#ece7e1;
-      --line:#d9bbbb;
-    }
-
-    *{box-sizing:border-box;}
-
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--maroon);
-      font-family:"Libre Baskerville", Georgia, serif;
-    }
-
-    .telugu{
-      font-family:"Noto Serif Telugu", serif;
-    }
-
-    .toolbar{
-      position:sticky;
-      top:0;
-      z-index:50;
-      background:#fffaf4;
-      border-bottom:1px solid #ddc9c9;
-      padding:12px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:10px;
-      font-family:Arial, sans-serif;
-      font-size:13px;
-    }
-
-    .toolbar button,
-    .toolbar a.button{
-      background:var(--maroon);
-      color:#fff;
-      border:none;
-      border-radius:6px;
-      padding:10px 16px;
-      cursor:pointer;
-      text-decoration:none;
-      font-size:13px;
-    }
-
-    .toolbar button:hover,
-    .toolbar a.button:hover{
-      opacity:.9;
-    }
-
-    .toolbar-note{
-      width:100%;
-      text-align:center;
-      color:#6d5b5b;
-      font-size:12px;
-    }
-
-    .page-label{
-      text-align:center;
-      margin:22px 0 12px;
-      color:#5d4545;
-      font-size:18px;
-      font-weight:700;
-    }
-
-    .paper{
-      position:relative;
-      width:min(1180px, calc(100% - 26px));
-      margin:0 auto 28px;
-      background:var(--cream);
-      box-shadow:0 4px 22px rgba(0,0,0,.10);
-      overflow:hidden;
-    }
-
-    .top-floral{
-      position:absolute;
-      top:0;
-      left:0;
-      width:100%;
-      height:94px;
-      background:url("floral-top.png") top center / 100% 100% no-repeat;
-      pointer-events:none;
-    }
-
-    .bottom-floral{
-      position:absolute;
-      bottom:0;
-      left:0;
-      width:100%;
-      height:78px;
-      background:url("floral-bottom.png") bottom center / 100% 100% no-repeat;
-      pointer-events:none;
-    }
-
-    .editable{
-      outline:none;
-      cursor:text;
-      white-space:normal;
-      overflow-wrap:anywhere;
-    }
-
-    .editable:focus{
-      outline:1px dashed #bf9b60;
-      background:#fff1d8;
-      border-radius:4px;
-    }
-
-    img.icon-img{
-      display:block;
-      max-width:100%;
-      height:auto;
-    }
-
-    /* ---------- PAGE 1 ---------- */
-    .cover{
-      min-height:860px;
-      padding:112px 42px 110px;
-    }
-
-    .cover-top{
-      display:grid;
-      grid-template-columns:110px 1fr 120px;
-      align-items:start;
-      column-gap:14px;
-    }
-
-    .ganesha-wrap{
-      display:flex;
-      justify-content:center;
-      align-items:flex-start;
-    }
-
-    .ganesha-wrap img{
-      width:78px;
-    }
-
-    .cover-title-area{
-      text-align:center;
-      padding-top:8px;
-    }
-
-    .cover-main-title{
-      font-size:24px;
-      font-weight:700;
-      line-height:1.5;
-      margin-bottom:14px;
-    }
-
-    .srinivasa-wrap{
-      display:flex;
-      justify-content:center;
-      align-items:flex-start;
-    }
-
-    .srinivasa-wrap img{
-      width:86px;
-    }
-
-    .cover-center{
-      display:grid;
-      grid-template-columns:1fr 1.1fr;
-      gap:40px;
-      margin-top:48px;
-      align-items:center;
-    }
-
-    .cover-left{
-      text-align:left;
-      padding-left:8px;
-    }
-
-    .knot-block{
-      display:flex;
-      align-items:center;
-      justify-content:flex-start;
-      gap:14px;
-      margin-bottom:28px;
-    }
-
-    .knot-block img{
-      width:76px;
-    }
-
-    .knot-text{
-      font-size:18px;
-      line-height:1.7;
-    }
-
-    .cover-host-label{
-      font-size:16px;
-      line-height:1.8;
-      margin-bottom:10px;
-    }
-
-    .cover-host-name{
-      font-size:20px;
-      font-weight:700;
-      line-height:1.8;
-      margin-bottom:10px;
-    }
-
-    .cover-host-address,
-    .cover-host-phone{
-      font-size:15px;
-      line-height:1.9;
-    }
-
-    .cover-right{
-      text-align:left;
-      padding-right:16px;
-    }
-
-    .to-line{
-      font-size:18px;
-      margin-bottom:8px;
-    }
-
-    .recipient-line{
-      border-bottom:1px solid var(--maroon);
-      min-height:34px;
-      margin:14px 0;
-    }
-
-    .pallaki-cover{
-      position:absolute;
-      right:70px;
-      bottom:102px;
-      width:160px;
-    }
-
-    .cover-bottom-mask{
-      position:absolute;
-      left:0;
-      bottom:78px;
-      width:100%;
-      height:16px;
-      background:var(--cream);
-    }
-
-    /* ---------- PAGE 2 ---------- */
-    .inside{
-      min-height:860px;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      padding:98px 0 98px;
-    }
-
-    .panel{
-      min-width:0;
-      padding:8px 34px 18px;
-    }
-
-    .right-panel{
-      border-left:1px solid var(--line);
-      text-align:center;
-    }
-
-    .compact-center{text-align:center;}
-    .italic{font-style:italic;}
-
-    .eng-blessings{
-      text-align:center;
-      font-size:14px;
-      line-height:1.35;
-      margin-bottom:10px;
-    }
-
-    .eng-title{
-      text-align:center;
-      font-size:26px;
-      font-weight:700;
-      line-height:1.2;
-      margin-bottom:14px;
-    }
-
-    .eng-intro{
-      text-align:center;
-      font-size:14px;
-      line-height:1.5;
-      margin-bottom:12px;
-    }
-
-    .eng-name{
-      text-align:center;
-      font-size:25px;
-      font-weight:700;
-      line-height:1.25;
-      margin:8px 0;
-    }
-
-    .eng-with{
-      text-align:center;
-      font-size:15px;
-      line-height:1.3;
-      margin:6px 0;
-    }
-
-    .eng-small{
-      text-align:center;
-      font-size:12px;
-      line-height:1.45;
-      margin:8px 0 12px;
-    }
-
-    .eng-subhead{
-      text-align:center;
-      font-size:15px;
-      font-weight:700;
-      line-height:1.25;
-      margin:12px 0 6px;
-    }
-
-    .eng-date{
-      text-align:center;
-      font-size:14px;
-      line-height:1.5;
-      margin-bottom:14px;
-    }
-
-    .eng-venue{
-      font-size:15px;
-      line-height:1.45;
-      margin:10px 0;
-    }
-
-    .eng-venue p{
-      margin:3px 0;
-    }
-
-    .divider{
-      width:78%;
-      height:1px;
-      background:var(--maroon);
-      opacity:.6;
-      margin:12px auto;
-    }
-
-    .eng-host{
-      text-align:center;
-      font-size:15px;
-      line-height:1.4;
-      margin:8px 0;
-    }
-
-    .eng-compliments{
-      text-align:center;
-      font-size:10px;
-      line-height:1.35;
-      margin-top:8px;
-    }
-
-    .right-top-icons{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:34px;
-      margin-bottom:10px;
-    }
-
-    .right-top-icons img{
-      width:78px;
-      max-height:82px;
-      object-fit:contain;
-    }
-
-    .te-greetings{
-      font-size:13px;
-      line-height:1.35;
-      margin:4px 0 8px;
-    }
-
-    .te-title{
-      font-size:25px;
-      font-weight:700;
-      line-height:1.2;
-      margin-bottom:10px;
-    }
-
-    .te-copy{
-      font-size:13px;
-      line-height:1.6;
-      margin:6px 0;
-    }
-
-    .te-name{
-      font-size:21px;
-      font-weight:700;
-      line-height:1.35;
-      margin:8px 0;
-    }
-
-    .te-parents{
-      font-size:12px;
-      line-height:1.55;
-      margin:6px 0 8px;
-    }
-
-    .te-host{
-      font-size:15px;
-      font-weight:600;
-      line-height:1.55;
-      margin:8px 0;
-    }
-
-    .pallaki-inside{
-      display:flex;
-      justify-content:center;
-      margin:16px 0 8px;
-    }
-
-    .pallaki-inside img{
-      width:185px;
-    }
-
-    .te-ending{
-      font-size:11px;
-      line-height:1.55;
-      border-top:1px solid var(--maroon);
-      margin-top:10px;
-      padding-top:8px;
-    }
-
-    .inside-bottom-mask{
-      position:absolute;
-      left:0;
-      bottom:78px;
-      width:100%;
-      height:18px;
-      background:var(--cream);
-    }
-
-    /* RSVP */
-    .rsvp-wrap{
-      text-align:center;
-      padding:12px 20px 52px;
-    }
-
-    .rsvp-wrap h2{
-      margin:0 0 12px;
-      color:var(--maroon);
-      font-size:21px;
-    }
-
-    .rsvp-button{
-      display:inline-block;
-      background:var(--maroon);
-      color:#fff;
-      text-decoration:none;
-      border-radius:7px;
-      padding:14px 36px;
-      font-size:17px;
-      font-weight:700;
-    }
-
-    /* Music */
-    .music-wrap{
-      text-align:center;
-      padding:0 20px 42px;
-    }
-
-    .music-controls{
-      display:flex;
-      justify-content:center;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:10px;
-    }
-
-    /* Mobile */
-    @media (max-width: 860px){
-      .cover{
-        padding:104px 20px 104px;
-      }
-
-      .cover-top{
-        grid-template-columns:70px 1fr 80px;
-      }
-
-      .ganesha-wrap img{ width:52px; }
-      .srinivasa-wrap img{ width:58px; }
-
-      .cover-center{
-        grid-template-columns:1fr;
-        gap:24px;
-      }
-
-      .pallaki-cover{
-        position:static;
-        width:130px;
-        margin:24px auto 0;
-      }
-
-      .inside{
-        grid-template-columns:1fr;
-        padding:98px 0 92px;
-      }
-
-      .right-panel{
-        border-left:none;
-        border-top:1px solid var(--line);
-      }
-
-      .panel{
-        padding:12px 20px 18px;
-      }
-    }
-
-    @media print{
-      @page{
-        size:A4 portrait;
-        margin:0;
-      }
-
-      body{ background:#fff; }
-
-      .toolbar,
-      .page-label,
-      .rsvp-wrap,
-      .music-wrap{
-        display:none !important;
-      }
-
-      .paper{
-        width:100%;
-        margin:0;
-        box-shadow:none;
-        break-after:page;
-        print-color-adjust:exact;
-        -webkit-print-color-adjust:exact;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Roshini & Sai Deepak | Wedding Invitation</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Telugu:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --maroon: #8a1d2e;
+  --cream: #fbf7ee;
+  --line: #c9a6a6;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #e9e5e2;
+  color: var(--maroon);
+  font-family: "Libre Baskerville", Georgia, serif;
+}
+
+.telugu, [lang="te"] {
+  font-family: "Noto Serif Telugu", serif;
+}
+
+.editor {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  padding: 12px;
+  background: #fffaf4;
+  border-bottom: 1px solid #dcc6c6;
+  font: 13px Arial,sans-serif;
+}
+
+button, .button {
+  border: 0;
+  border-radius: 5px;
+  background: var(--maroon);
+  color: white;
+  padding: 11px 16px;
+  cursor: pointer;
+  font: 13px Arial,sans-serif;
+}
+
+button:hover, .button:hover { opacity: .85; }
+
+.editor-note {
+  width: 100%;
+  text-align: center;
+  color: #756363;
+  font-size: 12px;
+}
+
+.page-label {
+  margin: 26px 0 12px;
+  text-align: center;
+  color: #583b42;
+  font: bold 18px Georgia,serif;
+}
+
+/* The floral card */
+.paper {
+  position: relative;
+  width: min(1180px, calc(100% - 28px));
+  margin: 0 auto 35px;
+  background: var(--cream);
+  color: var(--maroon);
+  box-shadow: 0 5px 25px #0002;
+  overflow: hidden;
+}
+
+.top-floral {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 96px;
+  background:
+    url("floral-top.png") center top /
+    100% 100% no-repeat;
+  pointer-events: none;
+}
+
+.bottom-floral {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 76px;
+  background:
+    url("floral-bottom.png") center bottom /
+    100% 100% no-repeat;
+  pointer-events: none;
+}
+
+.editable {
+  outline: none;
+  overflow-wrap: break-word;
+  cursor: text;
+}
+
+.editable:focus {
+  outline: 1px dashed #b48a52;
+  background: #fff2d8;
+}
+
+p { margin: 6px 0; }
+
+h1, h2, h3 { margin: 0; }
+
+.center { text-align: center; }
+
+.eng { font-style: italic; }
+
+.small { font-size: 12px; }
+.tiny { font-size: 10px; }
+
+.line {
+  height: 1px;
+  background: var(--maroon);
+  opacity: .75;
+  margin: 10px auto;
+  width: 85%;
+}
+
+/* OUTER COVER */
+
+.cover {
+  min-height: 820px;
+  padding: 115px 65px 115px;
+}
+
+.cover-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.cover-icons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+  margin: 12px 0;
+}
+
+.religious-symbol {
+  font-family: Georgia, serif;
+  font-size: 54px;
+  line-height: 1.2;
+  color: var(--maroon);
+}
+
+.cover-subtitle {
+  font-size: 19px;
+  text-align: center;
+}
+
+.cover-middle {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 45px;
+  margin: 50px auto;
+  align-items: center;
+}
+
+.cover-recipient {
+  text-align: left;
+  font-size: 19px;
+}
+
+.blank-line {
+  min-height: 31px;
+  border-bottom: 1px solid var(--maroon);
+  margin: 10px 0;
+}
+
+.cover-host {
+  margin-top: 95px;
+  text-align: left;
+  line-height: 1.8;
+  max-width: 610px;
+  font-size: 16px;
+}
+
+.cover-host-name {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.decorative-procession {
+  text-align: center;
+  color: var(--maroon);
+  font-size: 31px;
+  margin-top: 25px;
+}
+
+/* INSIDE CARD */
+
+.inside {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 95px 0 82px;
+  min-height: 845px;
+}
+
+.panel {
+  min-width: 0;
+  padding: 20px 37px 18px;
+}
+
+.panel-right {
+  border-left: 1px solid var(--line);
+  font-family: "Noto Serif Telugu",serif;
+  text-align: center;
+}
+
+.greetings {
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 5px 0 12px;
+  text-align: center;
+}
+
+.wedding-title {
+  font-size: 26px;
+  margin: 6px 0 12px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.invitation-intro {
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 8px 0 11px;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.4;
+  margin: 8px 0;
+  text-align: center;
+}
+
+.with {
+  text-align: center;
+  margin: 7px 0;
+  font-size: 15px;
+}
+
+.parent-info {
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 8px 0 14px;
+}
+
+.subheading {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 15px 0 9px;
+  text-align: center;
+}
+
+.date-details {
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 8px 0 14px;
+}
+
+.venue-details {
+  font-size: 15px;
+  line-height: 1.65;
+  margin-top: 12px;
+}
+
+.venue-details p {
+  margin: 3px 0;
+}
+
+.lunch {
+  margin: 11px 0;
+  font-size: 14px;
+}
+
+.host-english {
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 8px 0;
+}
+
+.compliments {
+  text-align: center;
+  font-size: 10px;
+  line-height: 1.55;
+  margin-top: 8px;
+}
+
+/* Telugu invitation */
+.divine-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin-bottom: 12px;
+}
+
+.divine-icons span {
+  font-size: 43px;
+  line-height: 1.25;
+}
+
+.telugu-greetings {
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 6px 0;
+}
+
+.telugu-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 9px 0 14px;
+}
+
+.telugu-copy {
+  font-size: 13px;
+  line-height: 1.75;
+  margin: 7px 0;
+}
+
+.telugu-name {
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1.55;
+  margin: 8px 0;
+}
+
+.telugu-parents {
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 6px 0;
+}
+
+.telugu-host {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.65;
+  margin: 9px 0;
+}
+
+.telugu-ending {
+  font-size: 11px;
+  line-height: 1.7;
+  border-top: 1px solid var(--maroon);
+  margin: 12px 0 0;
+  padding-top: 8px;
+}
+
+/* Artwork inside Telugu panel */
+.procession-art {
+  text-align: center;
+  margin: 14px auto 8px;
+  font-size: 27px;
+  letter-spacing: 4px;
+  line-height: 1.5;
+}
+
+/* RSVP */
+.rsvp-area {
+  text-align: center;
+  padding: 12px 20px 50px;
+}
+
+.rsvp-area h2 {
+  font-size: 21px;
+  margin-bottom: 14px;
+}
+
+.rsvp-button {
+  display: inline-block;
+  background: var(--maroon);
+  color: white;
+  text-decoration: none;
+  padding: 15px 42px;
+  border-radius: 7px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.rsvp-button:hover {
+  background: #681123;
+}
+
+/* Responsive */
+@media (max-width: 780px) {
+  .cover {
+    padding: 95px 20px 110px;
+  }
+
+  .cover-title { font-size: 25px; }
+
+  .cover-middle {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  .inside {
+    grid-template-columns: 1fr;
+    padding: 95px 0 80px;
+  }
+
+  .panel { padding: 20px 22px; }
+
+  .panel-right {
+    border-left: none;
+    border-top: 1px solid var(--line);
+  }
+}
+
+/* Printing */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+
+  body { background: white; }
+
+  .editor,
+  .page-label,
+  .rsvp-area {
+    display: none !important;
+  }
+
+  .paper {
+    box-shadow: none;
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+    break-after: page;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .inside {
+    break-after: auto;
+  }
+}
+</style>
 </head>
+
 <body>
 
-  <div class="toolbar">
-    <button onclick="window.print()">Print / Save PDF</button>
-    <button onclick="downloadHTML()">Download Edited HTML</button>
-    <button onclick="toggleMusic()">Play / Pause Music</button>
-    <button onclick="resetEdits()">Reset Browser Edits</button>
-    <div class="toolbar-note">
-      Click any text to edit it. Changes are saved in this browser.
+<!-- EDITING CONTROLS -->
+<div class="editor">
+  <strong>Wedding Invitation Editor</strong>
+  <button onclick="window.print()">Print / Save PDF</button>
+  <button onclick="downloadHTML()">Download Edited HTML</button>
+  <button onclick="resetEdits()">Reset Browser Edits</button>
+  <div class="editor-note">
+    Click any invitation text to edit it.
+    Changes are saved in this browser.
+  </div>
+</div>
+
+<h2 class="page-label">1. Outer Wedding Invitation Cover</h2>
+
+<article class="paper cover" id="cover">
+  <div class="top-floral"></div>
+  <div class="bottom-floral"></div>
+
+  <div class="cover-icons">
+    <span class="religious-symbol">ॐ</span>
+    <span class="religious-symbol">❀</span>
+  </div>
+
+  <h1 class="telugu cover-title editable"
+      contenteditable="true"
+      data-edit="cover-title">
+    కుంచాల వారి పెండ్లిపిలుపు
+  </h1>
+
+  <div class="cover-subtitle telugu editable"
+       contenteditable="true"
+       data-edit="cover-subtitle">
+    శుభ లగ్నపత్రిక
+  </div>
+
+  <div class="cover-middle telugu">
+    <div class="center">
+      <div class="religious-symbol">ॐ</div>
+      <div class="editable"
+           contenteditable="true"
+           data-edit="cover-symbol">
+        శుభ లగ్నపత్రిక<br>ఆహ్వానం
+      </div>
+    </div>
+
+    <div class="cover-recipient">
+      <div contenteditable="true"
+           class="editable"
+           data-edit="recipient-label">
+        శ్రీమతి &amp; శ్రీ
+      </div>
+      <div class="blank-line editable"
+           contenteditable="true"
+           data-edit="recipient-1"></div>
+      <div class="blank-line editable"
+           contenteditable="true"
+           data-edit="recipient-2"></div>
+      <div class="blank-line editable"
+           contenteditable="true"
+           data-edit="recipient-3"></div>
     </div>
   </div>
 
-  <h2 class="page-label">1. Outer Wedding Invitation Cover</h2>
-
-  <section class="paper cover">
-    <div class="top-floral"></div>
-    <div class="bottom-floral"></div>
-    <div class="cover-bottom-mask"></div>
-
-    <div class="cover-top">
-      <div class="ganesha-wrap">
-        <img src="lord-ganesha.png" alt="Lord Ganesha" class="icon-img">
-      </div>
-
-      <div class="cover-title-area">
-        <div class="cover-main-title telugu editable" contenteditable="true" data-edit="cover-title">
-          లంకె వారి పెండ్లిపిలుపు
-        </div>
-      </div>
-
-      <div class="srinivasa-wrap">
-        <img src="srinivasa-kalyanam.png" alt="Srinivasa Kalyanam" class="icon-img">
-      </div>
+  <div class="cover-host telugu">
+    <div class="editable"
+         contenteditable="true"
+         data-edit="cover-invite">
+      ఆహ్వానించువారు
     </div>
 
-    <div class="cover-center telugu">
-      <div class="cover-left">
-        <div class="knot-block">
-          <img src="mangala-knot.png" alt="Mangala knot" class="icon-img">
-          <div class="knot-text editable" contenteditable="true" data-edit="cover-knot-text">
-            శుభ లగ్నపత్రిక<br>
-            ఆహ్వానం
-          </div>
-        </div>
-
-        <div class="cover-host-label editable" contenteditable="true" data-edit="cover-host-label">
-          ఆహ్వానించువారు :
-        </div>
-
-        <div class="cover-host-name editable" contenteditable="true" data-edit="cover-host-name">
-          శ్రీ లంకె మాధవరావు - శ్రీమతి లక్ష్మి
-        </div>
-
-        <div class="cover-host-address editable" contenteditable="true" data-edit="cover-address">
-          డోర్.నం. 73-5-8బి, పత్తిమె గుంటూరు,<br>
-          చినమహావరం వారి వీధి,<br>
-          గుడివాడ, బాపట్లజిల్లా, యం.పి.
-        </div>
-
-        <div class="cover-host-phone editable" contenteditable="true" data-edit="cover-phone">
-          సెల్ : 9848705479, 9014344879
-        </div>
-      </div>
-
-      <div class="cover-right">
-        <div class="to-line editable" contenteditable="true" data-edit="cover-to-label">
-          To<br>శ్రీమతి & శ్రీ
-        </div>
-
-        <div class="recipient-line editable" contenteditable="true" data-edit="recipient-1"></div>
-        <div class="recipient-line editable" contenteditable="true" data-edit="recipient-2"></div>
-        <div class="recipient-line editable" contenteditable="true" data-edit="recipient-3"></div>
-      </div>
+    <div class="cover-host-name editable"
+         contenteditable="true"
+         data-edit="cover-host">
+      శ్రీమతి &amp; శ్రీ కుంచాల సువర్ణ–విఠల్ రెడ్డి
     </div>
 
-    <img src="pallaki.png" alt="Wedding pallaki" class="pallaki-cover">
+    <div class="editable"
+         contenteditable="true"
+         data-edit="cover-address">
+      ఇ.నెం. 4-55, ఎల్లమ్మ కాలనీ,
+      గోపాలపురం, హన్మకొండ.
+    </div>
+
+    <div class="editable"
+         contenteditable="true"
+         data-edit="cover-phone">
+      సెల్: 8074253839, 6301245651
+    </div>
+  </div>
+
+  <div class="decorative-procession">
+    ❀ ✦ ❀
+  </div>
+</article>
+
+<h2 class="page-label">2. Inside Wedding Invitation</h2>
+
+<article class="paper inside" id="inside">
+  <div class="top-floral"></div>
+  <div class="bottom-floral"></div>
+
+  <!-- LEFT ENGLISH PANEL -->
+  <section class="panel panel-left eng">
+
+    <div class="greetings editable"
+         contenteditable="true"
+         data-edit="eng-greetings">
+      Srirasthu! &nbsp;&nbsp;
+      Shubhamasthu!! &nbsp;&nbsp;
+      Avighnamasthu!!!
+    </div>
+
+    <h2 class="wedding-title editable"
+        contenteditable="true"
+        data-edit="eng-heading">
+      Wedding Invitation
+    </h2>
+
+    <p class="invitation-intro editable"
+       contenteditable="true"
+       data-edit="eng-intro">
+      We solicit your gracious presence with family
+      &amp; friends on the auspicious occasion
+      of the marriage of our Younger Daughter
+    </p>
+
+    <div class="name editable"
+         contenteditable="true"
+         data-edit="bride">
+      Chi. La. Sow. Roshini Reddy
+    </div>
+
+    <div class="with editable"
+         contenteditable="true"
+         data-edit="eng-with">
+      With
+    </div>
+
+    <div class="name editable"
+         contenteditable="true"
+         data-edit="groom">
+      Chi. Sai Deepak Reddy
+    </div>
+
+    <div class="parent-info editable"
+         contenteditable="true"
+         data-edit="eng-parents">
+      (Elder Son of Smt. &amp; Sri Gutha
+      Sukanya–Chinna Kanna Reddy, Nalgonda)
+    </div>
+
+    <div class="subheading editable"
+         contenteditable="true"
+         data-edit="eng-muhurtham">
+      Sumuhurtham:
+    </div>
+
+    <div class="date-details editable"
+         contenteditable="true"
+         data-edit="eng-date">
+      On Friday 20th November, 2026 at 11.23 AM,
+      Uttarabhadra Nakshatram, Makara Lagnam
+    </div>
+
+    <div class="venue-details">
+      <p class="editable"
+         contenteditable="true"
+         data-edit="eng-venue">
+        Venue:<br>
+        <b>Vivanta Grand Banquet Hall</b><br>
+        Lewisville, Texas
+      </p>
+
+      <p class="lunch editable"
+         contenteditable="true"
+         data-edit="eng-lunch">
+        Lunch Follows.....
+      </p>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="host-english editable"
+         contenteditable="true"
+         data-edit="eng-host">
+      Smt. &amp; Sri Kunchala Suvarna–Vittal Reddy
+    </div>
+
+    <div class="compliments editable"
+         contenteditable="true"
+         data-edit="eng-compliments">
+      With Best Compliments from:
+      Erri Rohitha Reddy–Suchethan Reddy,
+      Near &amp; Dear
+    </div>
+
   </section>
 
-  <h2 class="page-label">2. Inside Wedding Invitation</h2>
+  <!-- RIGHT TELUGU PANEL -->
+  <section class="panel panel-right telugu">
 
-  <section class="paper inside">
-    <div class="top-floral"></div>
-    <div class="bottom-floral"></div>
-    <div class="inside-bottom-mask"></div>
-
-    <!-- English panel -->
-    <div class="panel italic">
-      <div class="eng-blessings editable" contenteditable="true" data-edit="eng-blessings">
-        Srirasthu! &nbsp;&nbsp; Shubhamasthu!! &nbsp;&nbsp; Avighnamasthu!!!
-      </div>
-
-      <div class="eng-title editable" contenteditable="true" data-edit="eng-title">
-        Wedding Invitation
-      </div>
-
-      <div class="eng-intro editable" contenteditable="true" data-edit="eng-intro">
-        We solicit your gracious presence with family & friends on the auspicious occasion of the marriage of our Younger Daughter
-      </div>
-
-      <div class="eng-name editable" contenteditable="true" data-edit="eng-bride">
-        Chi. La. Sow. Roshini Reddy
-      </div>
-
-      <div class="eng-with editable" contenteditable="true" data-edit="eng-with">
-        With
-      </div>
-
-      <div class="eng-name editable" contenteditable="true" data-edit="eng-groom">
-        Chi. Sai Deepak Reddy
-      </div>
-
-      <div class="eng-small editable" contenteditable="true" data-edit="eng-parents">
-        (Elder Son of Smt. & Sri Gutha Sukanya–Chinna Kanna Reddy, Nalgonda)
-      </div>
-
-      <div class="eng-subhead editable" contenteditable="true" data-edit="eng-subhead">
-        Sumuhurtham:
-      </div>
-
-      <div class="eng-date editable" contenteditable="true" data-edit="eng-date">
-        On Friday 20th November, 2026 at 11.23 AM, Uttarabhadra Nakshatram, Makara Lagnam
-      </div>
-
-      <div class="eng-venue">
-        <p class="editable" contenteditable="true" data-edit="eng-venue-label">Venue:</p>
-        <p class="editable" contenteditable="true" data-edit="eng-venue-name"><strong>Vivanta Grand Banquet Hall</strong></p>
-        <p class="editable" contenteditable="true" data-edit="eng-venue-city">Lewisville, Texas</p>
-        <p class="editable" contenteditable="true" data-edit="eng-lunch">Lunch Follows.....</p>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="eng-host editable" contenteditable="true" data-edit="eng-host">
-        Smt. & Sri Kunchala Suvarna–Vittal Reddy
-      </div>
-
-      <div class="eng-compliments editable" contenteditable="true" data-edit="eng-compliments">
-        With Best Compliments from: Erri Rohitha Reddy–Suchethan Reddy, Near & Dear
-      </div>
+    <div class="divine-icons">
+      <span>ॐ</span>
+      <span>❀</span>
     </div>
 
-    <!-- Telugu panel -->
-    <div class="panel right-panel telugu">
-      <div class="right-top-icons">
-        <img src="lord-ganesha.png" alt="Lord Ganesha" class="icon-img">
-        <img src="srinivasa-kalyanam.png" alt="Srinivasa Kalyanam" class="icon-img">
-      </div>
-
-      <div class="te-greetings editable" contenteditable="true" data-edit="te-greetings">
-        శ్రీరస్తు ! &nbsp; శుభమస్తు !! &nbsp; అవిఘ్నమస్తు !!!
-      </div>
-
-      <div class="te-title editable" contenteditable="true" data-edit="te-title">
-        శుభలేఖ
-      </div>
-
-      <div class="te-copy editable" contenteditable="true" data-edit="te-opening">
-        స్వస్తిశ్రీ శుభతిథినందు ది : 20-11-2026 శుక్రవారం ఉ. 11-23 గంటలకు ఉత్తరాభాద్ర నక్షత్రము, మకర లగ్న శుభముహూర్తమున
-      </div>
-
-      <div class="te-name editable" contenteditable="true" data-edit="te-bride">
-        చి.ల.సౌ. రోషిణి రెడ్డి
-      </div>
-
-      <div class="te-copy editable" contenteditable="true" data-edit="te-with">
-        వివాహమునకు
-      </div>
-
-      <div class="te-name editable" contenteditable="true" data-edit="te-groom">
-        చి. సాయి దీపక్ రెడ్డి
-      </div>
-
-      <div class="te-parents editable" contenteditable="true" data-edit="te-parents">
-        (శ్రీమతి & శ్రీ గుత్త సుకన్య–చిన్నకన్న రెడ్డి గారి పెద్ద కుమారుడు, నల్లగొండ)
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="te-copy editable" contenteditable="true" data-edit="te-bless">
-        బంధుమిత్రులందరూ విచ్చేసి వధూవరులను ఆశీర్వదించవలసినదిగా కోరుచున్నాము.
-      </div>
-
-      <div class="te-host editable" contenteditable="true" data-edit="te-host">
-        శ్రీమతి & శ్రీ కుంచాల సువర్ణ – విఠల్ రెడ్డి
-      </div>
-
-      <div class="pallaki-inside">
-        <img src="pallaki.png" alt="Wedding pallaki" class="icon-img">
-      </div>
-
-      <div class="te-ending editable" contenteditable="true" data-edit="te-ending">
-        శ్రీమతి & శ్రీ ఇర్రి రోహిత రెడ్డి–సుచేతన్ రెడ్డి గార్ల మరియు బంధు–మిత్రుల ఆహ్వానములతో....
-      </div>
+    <div class="telugu-greetings editable"
+         contenteditable="true"
+         lang="te"
+         data-edit="telugu-greetings">
+      శ్రీరస్తు ! &nbsp; శుభమస్తు !!
+      &nbsp; అవిఘ్నమస్తు !!!
     </div>
-  </section>
 
-  <section class="rsvp-wrap">
-    <h2>We Look Forward to Celebrating With You!</h2>
-    <a class="rsvp-button" href="https://withjoy.com/saideepak-and-roshini/rsvp?v=1" target="_blank" rel="noopener noreferrer">
-      RSVP Here
-    </a>
-  </section>
+    <h2 class="telugu-title editable"
+        contenteditable="true"
+        lang="te"
+        data-edit="telugu-heading">
+      శుభలేఖ
+    </h2>
 
-  <section class="music-wrap">
-    <audio id="bgMusic" loop preload="auto">
-      <source src="wedding-music.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
+    <p class="telugu-copy editable"
+       contenteditable="true"
+       lang="te"
+       data-edit="telugu-opening">
+      స్వస్తిశ్రీ శుభతిథినందు ది: 20-11-2026
+      శుక్రవారం ఉ. 11-23 గంటలకు
+      ఉత్తరాభాద్ర నక్షత్రము,
+      మకర లగ్న శుభముహూర్తమున
+    </p>
 
-    <div class="music-controls">
-      <button onclick="playMusic()">Play Music</button>
-      <button onclick="pauseMusic()">Pause Music</button>
+    <div class="telugu-name editable"
+         contenteditable="true"
+         lang="te"
+         data-edit="telugu-bride">
+      చి.ల.సౌ. రోషిణి రెడ్డి
     </div>
+
+    <p class="telugu-copy editable"
+       contenteditable="true"
+       lang="te"
+       data-edit="telugu-with">
+      వివాహమునకు
+    </p>
+
+    <div class="telugu-name editable"
+         contenteditable="true"
+         lang="te"
+         data-edit="telugu-groom">
+      చి. సాయి దీపక్ రెడ్డి
+    </div>
+
+    <p class="telugu-parents editable"
+       contenteditable="true"
+       lang="te"
+       data-edit="telugu-parents">
+      (శ్రీమతి &amp; శ్రీ గుత్త సుకన్య–చిన్నకన్న
+      రెడ్డి గారి పెద్ద కుమారుడు, నల్లగొండ)
+    </p>
+
+    <p class="telugu-copy editable"
+       contenteditable="true"
+       lang="te"
+       data-edit="telugu-smallprint">
+      [ఈ చిన్న తెలుగు పంక్తులను మీ అసలు కార్డు
+      నుండి సరిచూసి మార్చండి]
+    </p>
+
+    <div class="line"></div>
+
+    <p class="telugu-copy editable"
+       contenteditable="true"
+       lang="te"
+       data-edit="telugu-blessings">
+      బంధుమిత్రులందరూ విచ్చేసి
+      వధూవరులను ఆశీర్వదించవలసినదిగా
+      కోరుచున్నాము.
+    </p>
+
+    <p class="telugu-host editable"
+       contenteditable="true"
+       lang="te"
+       data-edit="telugu-host">
+      శ్రీమతి &amp; శ్రీ కుంచాల
+      సువర్ణ–విఠల్ రెడ్డి
+    </p>
+
+    <div class="procession-art"
+         aria-hidden="true">
+      ❀ 🐘 ❀
+    </div>
+
+    <div class="telugu-ending editable"
+         contenteditable="true"
+         lang="te"
+         data-edit="telugu-ending">
+      శ్రీమతి &amp; శ్రీ ఇర్రి రోహిత రెడ్డి–
+      సుచేతన్ రెడ్డి గార్ల మరియు
+      బంధు–మిత్రుల ఆహ్వానములతో....
+    </div>
+
   </section>
+</article>
 
-  <script>
-    const STORAGE_KEY = "roshini-wedding-v6";
+<!-- RSVP -->
+<section class="rsvp-area">
+  <h2>We Look Forward to Celebrating With You!</h2>
 
-    function getFields() {
-      return document.querySelectorAll("[data-edit]");
-    }
+  <a class="rsvp-button"
+     href="https://withjoy.com/saideepak-and-roshini/rsvp?v=1"
+     target="_blank"
+     rel="noopener noreferrer">
+    RSVP Here
+  </a>
+</section>
 
-    function saveChanges() {
-      const data = {};
-      getFields().forEach(el => {
-        data[el.dataset.edit] = el.innerHTML;
-      });
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    }
+<script>
+const STORAGE_KEY = "roshini-invitation-v5";
 
-    function restoreChanges() {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (!raw) return;
-      try {
-        const data = JSON.parse(raw);
-        getFields().forEach(el => {
-          if (data[el.dataset.edit] !== undefined) {
-            el.innerHTML = data[el.dataset.edit];
-          }
-        });
-      } catch (e) {
-        console.warn("Restore failed", e);
+const fields = () =>
+  [...document.querySelectorAll("[data-edit]")];
+
+function saveChanges() {
+  const data = {};
+
+  fields().forEach(el => {
+    data[el.dataset.edit] = el.innerHTML;
+  });
+
+  try {
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(data)
+    );
+  } catch (e) {
+    console.warn("Unable to save edits", e);
+  }
+}
+
+function restoreChanges() {
+  try {
+    const data = JSON.parse(
+      localStorage.getItem(STORAGE_KEY) || "null"
+    );
+
+    if (!data) return;
+
+    fields().forEach(el => {
+      if (Object.prototype.hasOwnProperty.call(
+        data, el.dataset.edit
+      )) {
+        el.innerHTML = data[el.dataset.edit];
       }
-    }
-
-    function resetEdits() {
-      if (confirm("Clear all browser edits and restore published content?")) {
-        localStorage.removeItem(STORAGE_KEY);
-        location.reload();
-      }
-    }
-
-    function downloadHTML() {
-      saveChanges();
-      const clone = document.documentElement.cloneNode(true);
-
-      const originalFields = document.querySelectorAll("[data-edit]");
-      const clonedFields = clone.querySelectorAll("[data-edit]");
-
-      clonedFields.forEach(clonedEl => {
-        const key = clonedEl.dataset.edit;
-        const originalEl = Array.from(originalFields).find(el => el.dataset.edit === key);
-        if (originalEl) clonedEl.innerHTML = originalEl.innerHTML;
-      });
-
-      const html = "<!DOCTYPE html>\n" + clone.outerHTML;
-      const blob = new Blob([html], { type: "text/html;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "index.html";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
-    }
-
-    function playMusic() {
-      const music = document.getElementById("bgMusic");
-      music.play().catch(() => {
-        alert("Autoplay may be blocked. Click Play Music again.");
-      });
-    }
-
-    function pauseMusic() {
-      document.getElementById("bgMusic").pause();
-    }
-
-    function toggleMusic() {
-      const music = document.getElementById("bgMusic");
-      if (music.paused) {
-        playMusic();
-      } else {
-        pauseMusic();
-      }
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      restoreChanges();
-      getFields().forEach(el => {
-        el.addEventListener("input", saveChanges);
-      });
     });
-  </script>
+  } catch (e) {
+    console.warn("Unable to restore edits", e);
+  }
+}
+
+function resetEdits() {
+  if (confirm("Clear browser edits and restore the published invitation?")) {
+    localStorage.removeItem(STORAGE_KEY);
+    location.reload();
+  }
+}
+
+function downloadHTML() {
+  saveChanges();
+
+  const clone = document.documentElement.cloneNode(true);
+  const cloneFields = clone.querySelectorAll("[data-edit]");
+
+  cloneFields.forEach(el => {
+    const original = fields().find(
+      f => f.dataset.edit === el.dataset.edit
+    );
+
+    if (original) {
+      el.innerHTML = original.innerHTML;
+    }
+  });
+
+  const html = "<!DOCTYPE html>\n" + clone.outerHTML;
+
+  const blob = new Blob([html], {
+    type: "text/html;charset=utf-8"
+  });
+
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+
+  link.href = url;
+  link.download = "index.html";
+
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  restoreChanges();
+
+  fields().forEach(el => {
+    el.addEventListener("input", saveChanges);
+  });
+});
+</script>
+
 </body>
 </html>
