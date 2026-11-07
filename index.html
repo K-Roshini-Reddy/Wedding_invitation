@@ -984,65 +984,71 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 <!-- Automatic Nadaswaram Music -->
-<audio
-  id="nadaswaramAudio"
-  autoplay
-  loop
-  preload="auto"
-  playsinline
->
-  <source src="nadaswaram.mp3" type="audio/mpeg">
-</audio>
-
-<script>
 
 <!-- Nadaswaram Background Music -->
-<audio id="nadaswaramMusic" loop preload="auto">
+<audio id="nadaswaramMusic" autoplay loop preload="auto">
   <source src="nadaswaram.mp3" type="audio/mpeg">
 </audio>
 
-<button id="musicButton" onclick="toggleNadaswaram()"
+<button
+  id="musicButton"
+  type="button"
+  onclick="toggleNadaswaram()"
   style="
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    z-index:9999;
-    background:#8a1d2e;
-    color:white;
-    border:none;
-    border-radius:50px;
-    padding:13px 20px;
-    cursor:pointer;
-    box-shadow:0 3px 12px #0003;">
-  🔇 Play Music
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99999;
+    background: #8a1d2e;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  "
+>
+  🔊 Play Music
 </button>
 
 <script>
-const nadaswaram = document.getElementById("nadaswaramMusic");
-const musicButton = document.getElementById("musicButton");
+const nadaswaramMusic =
+  document.getElementById("nadaswaramMusic");
 
-nadaswaram.volume = 0.4;
+const musicButton =
+  document.getElementById("musicButton");
+
+nadaswaramMusic.volume = 0.4;
+
+function updateMusicButton() {
+  musicButton.textContent = nadaswaramMusic.paused
+    ? "🔊 Play Music"
+    : "🔇 Pause Music";
+}
 
 function toggleNadaswaram() {
-  if (nadaswaram.paused) {
-    nadaswaram.play().then(() => {
-      musicButton.textContent = "🔊 Pause Music";
-    }).catch(console.error);
+  if (nadaswaramMusic.paused) {
+    nadaswaramMusic.play()
+      .then(updateMusicButton)
+      .catch(error => {
+        console.error("Music playback failed:", error);
+      });
   } else {
-    nadaswaram.pause();
-    musicButton.textContent = "🔇 Play Music";
+    nadaswaramMusic.pause();
+    updateMusicButton();
   }
 }
 
-// Try to play music when the page opens
 window.addEventListener("load", () => {
-  nadaswaram.play().then(() => {
-    musicButton.textContent = "🔊 Pause Music";
-  }).catch(() => {
-    // Browser blocks automatic audio until interaction
-    musicButton.textContent = "🔇 Play Music";
-  });
+  nadaswaramMusic.play()
+    .then(updateMusicButton)
+    .catch(() => {
+      updateMusicButton();
+    });
 });
+</script>
+
 </script>
 
 
