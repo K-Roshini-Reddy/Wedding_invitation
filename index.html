@@ -80,29 +80,35 @@ button:hover, .button:hover { opacity: .85; }
   overflow: hidden;
 }
 
-  .top-floral {
+
+/* New gold wedding card border - top */
+.top-floral {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 96px;
-  background:
-    url("floral-bottom.png") center top /
-    100% 100% no-repeat;
+  background-image: url("floral-bottom.png");
+  background-position: center top;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   pointer-events: none;
 }
 
+/* New gold wedding card border - bottom */
 .bottom-floral {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 76px;
-  background:
-    url("floral-bottom.png") center bottom /
-    100% 100% no-repeat;
+  background-image: url("floral-bottom.png");
+  background-position: center bottom;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   pointer-events: none;
 }
+
 
 .editable {
   outline: none;
