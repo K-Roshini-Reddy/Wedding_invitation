@@ -869,5 +869,45 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+
+<!-- Automatic Nadaswaram Music -->
+<audio
+  id="nadaswaramAudio"
+  autoplay
+  loop
+  preload="auto"
+  playsinline
+>
+  <source src="nadaswaram.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+(function () {
+  const audio = document.getElementById("nadaswaramAudio");
+
+  audio.volume = 0.5;
+
+  function playMusic() {
+    if (!audio.paused) return;
+
+    audio.play().catch(() => {
+      // The browser may block automatic audio.
+    });
+  }
+
+  // Try playing when the invitation opens.
+  window.addEventListener("load", playMusic);
+
+  // If autoplay is blocked, start on first interaction.
+  // No music button is displayed.
+  ["pointerdown", "touchstart", "keydown"].forEach(type => {
+    document.addEventListener(type, playMusic, {
+      passive: true
+    });
+  });
+})();
+</script>
+
+  
 </body>
 </html>
