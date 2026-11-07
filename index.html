@@ -973,71 +973,60 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <!-- Automatic Nadaswaram Music -->
 
-<!-- Nadaswaram Background Music -->
-<audio id="nadaswaramMusic" autoplay loop preload="auto">
-  <source src="nadaswaram.mp3" type="audio/mpeg">
-</audio>
+<!-- Same Nadaswaram music as DeepakWedsRoshini -->
+<div id="youtubeAudioContainer"
+     style="position:absolute;width:1px;height:1px;overflow:hidden;">
+  <div id="youtubePlayer"></div>
+</div>
 
-<button
-  id="musicButton"
-  type="button"
-  onclick="toggleNadaswaram()"
-  style="
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 99999;
-    background: #8a1d2e;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    padding: 14px 20px;
-    font-size: 15px;
-    cursor: pointer;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
-  "
->
-  🔊 Play Music
-</button>
+<script src="https://www.youtube.com/iframe_api"></script>
 
 <script>
-const nadaswaramMusic =
-  document.getElementById("nadaswaramMusic");
+let weddingMusicPlayer;
+let musicStarted = false;
 
-const musicButton =
-  document.getElementById("musicButton");
-
-nadaswaramMusic.volume = 0.4;
-
-function updateMusicButton() {
-  musicButton.textContent = nadaswaramMusic.paused
-    ? "🔊 Play Music"
-    : "🔇 Pause Music";
+function onYouTubeIframeAPIReady() {
+  weddingMusicPlayer = new YT.Player("youtubePlayer", {
+    height: "1",
+    width: "1",
+    videoId: "6PvWIMRqAL0",
+    playerVars: {
+      autoplay: 1,
+      controls: 0,
+      loop: 1,
+      playlist: "6PvWIMRqAL0",
+      playsinline: 1
+    },
+    events: {
+      onReady: function(event) {
+        event.target.setVolume(40);
+        startWeddingMusic();
+      }
+    }
+  });
 }
 
-function toggleNadaswaram() {
-  if (nadaswaramMusic.paused) {
-    nadaswaramMusic.play()
-      .then(updateMusicButton)
-      .catch(error => {
-        console.error("Music playback failed:", error);
-      });
-  } else {
-    nadaswaramMusic.pause();
-    updateMusicButton();
+function startWeddingMusic() {
+  if (!weddingMusicPlayer ||
+      typeof weddingMusicPlayer.playVideo !== "function") {
+    return;
   }
+
+  weddingMusicPlayer.playVideo();
+  musicStarted = true;
 }
 
-window.addEventListener("load", () => {
-  nadaswaramMusic.play()
-    .then(updateMusicButton)
-    .catch(() => {
-      updateMusicButton();
-    });
+// Attempt playback when opening the invitation.
+window.addEventListener("load", startWeddingMusic);
+
+// Retry on the first interaction if autoplay is blocked.
+["click", "touchstart", "keydown"].forEach(eventName => {
+  document.addEventListener(eventName, function() {
+    if (!musicStarted) startWeddingMusic();
+  });
 });
 </script>
 
-</script>
 
 
   
