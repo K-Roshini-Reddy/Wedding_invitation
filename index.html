@@ -3,360 +3,455 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Roshini & Sai Deepak Wedding Invitation</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Roshini & Sai Deepak | Wedding Invitation</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Telugu:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --maroon: #891d30;
+  --maroon: #8a1d2e;
   --cream: #fbf7ee;
-  --gold: #b78a43;
+  --line: #c9a6a6;
 }
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  background: #ebe5df;
+  background: #e9e5e2;
   color: var(--maroon);
   font-family: "Libre Baskerville", Georgia, serif;
 }
 
-button, input {
-  font: inherit;
+.telugu, [lang="te"] {
+  font-family: "Noto Serif Telugu", serif;
 }
 
-.toolbar {
+.editor {
   position: sticky;
   top: 0;
-  z-index: 100;
-  background: #fffaf3;
-  border-bottom: 1px solid #ddcbbb;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 9px;
   padding: 12px;
-  text-align: center;
+  background: #fffaf4;
+  border-bottom: 1px solid #dcc6c6;
+  font: 13px Arial,sans-serif;
 }
 
-.toolbar button,
-.toolbar input {
-  margin: 5px;
-  padding: 10px;
-}
-
-.toolbar button,
-.rsvp-button {
+button, .button {
+  border: 0;
+  border-radius: 5px;
   background: var(--maroon);
   color: white;
-  border: 0;
-  border-radius: 7px;
-  padding: 12px 20px;
+  padding: 11px 16px;
   cursor: pointer;
+  font: 13px Arial,sans-serif;
 }
 
-.toolbar input {
-  width: min(310px, 90%);
-  border: 1px solid #c7a9a9;
-  border-radius: 5px;
-}
+button:hover, .button:hover { opacity: .85; }
 
-.instructions {
-  font: 13px Arial, sans-serif;
-  color: #715a53;
-  margin-top: 5px;
-}
-
-.page-title {
+.editor-note {
+  width: 100%;
   text-align: center;
-  padding: 20px 10px 5px;
-  font: bold 20px Georgia, serif;
+  color: #756363;
+  font-size: 12px;
 }
 
-.invitation {
+.page-label {
+  margin: 26px 0 12px;
+  text-align: center;
+  color: #583b42;
+  font: bold 18px Georgia,serif;
+}
+
+/* The floral card */
+.paper {
   position: relative;
-  max-width: 920px;
-  margin: 25px auto 45px;
+  width: min(1180px, calc(100% - 28px));
+  margin: 0 auto 35px;
   background: var(--cream);
   color: var(--maroon);
-  box-shadow: 0 8px 35px #0002;
+  box-shadow: 0 5px 25px #0002;
   overflow: hidden;
-  padding: 150px 48px 115px;
-  text-align: center;
 }
 
-.invitation::before {
-  content: "";
+.top-floral {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 165px;
-  background: url("floral-top.png") top center / 100% auto no-repeat;
+  height: 96px;
+  background:
+    url("floral-top.png") center top /
+    100% 100% no-repeat;
   pointer-events: none;
 }
 
-.invitation::after {
-  content: "";
+.bottom-floral {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 135px;
-  background: url("floral-bottom.png") bottom center / 100% auto no-repeat;
+  height: 76px;
+  background:
+    url("floral-bottom.png") center bottom /
+    100% 100% no-repeat;
   pointer-events: none;
 }
 
-[contenteditable="true"] {
+.editable {
   outline: none;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   cursor: text;
 }
 
-[contenteditable="true"]:focus {
-  background: #fff0c9;
-  box-shadow: 0 0 0 2px #c89b64;
-  border-radius: 4px;
+.editable:focus {
+  outline: 1px dashed #b48a52;
+  background: #fff2d8;
 }
 
-/* COVER */
+p { margin: 6px 0; }
+
+h1, h2, h3 { margin: 0; }
+
+.center { text-align: center; }
+
+.eng { font-style: italic; }
+
+.small { font-size: 12px; }
+.tiny { font-size: 10px; }
+
+.line {
+  height: 1px;
+  background: var(--maroon);
+  opacity: .75;
+  margin: 10px auto;
+  width: 85%;
+}
+
+/* OUTER COVER */
 
 .cover {
-  min-height: 1100px;
-}
-
-.ganesh {
-  font-size: 50px;
-  margin: 5px auto 15px;
-  color: #aa661c;
-}
-
-.telugu {
-  font-family: "Noto Serif Telugu", serif;
-  line-height: 1.9;
+  min-height: 820px;
+  padding: 115px 65px 115px;
 }
 
 .cover-title {
-  font-size: 38px;
-  font-weight: 700;
-  line-height: 1.65;
-  margin: 14px auto 25px;
-}
-
-.cover-symbol {
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.cover-addressing {
-  display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 30px;
-  text-align: left;
-  margin: 45px auto 65px;
-  align-items: center;
-}
-
-.cover-addressing .left {
   text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 25px;
 }
 
-.recipient-lines {
-  border-bottom: 1px solid var(--maroon);
-  min-height: 30px;
+.cover-icons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
   margin: 12px 0;
 }
 
-.cover-host {
-  margin-top: 60px;
+.religious-symbol {
+  font-family: Georgia, serif;
+  font-size: 54px;
+  line-height: 1.2;
+  color: var(--maroon);
+}
+
+.cover-subtitle {
+  font-size: 19px;
+  text-align: center;
+}
+
+.cover-middle {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 45px;
+  margin: 50px auto;
+  align-items: center;
+}
+
+.cover-recipient {
   text-align: left;
   font-size: 19px;
 }
 
-.cover-host strong {
-  font-size: 23px;
+.blank-line {
+  min-height: 31px;
+  border-bottom: 1px solid var(--maroon);
+  margin: 10px 0;
 }
 
-.cover-host p {
-  margin: 8px 0;
+.cover-host {
+  margin-top: 95px;
+  text-align: left;
+  line-height: 1.8;
+  max-width: 610px;
+  font-size: 16px;
 }
 
-/* INSIDE INVITATION */
+.cover-host-name {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.decorative-procession {
+  text-align: center;
+  color: var(--maroon);
+  font-size: 31px;
+  margin-top: 25px;
+}
+
+/* INSIDE CARD */
 
 .inside {
-  max-width: 1350px;
-  padding: 110px 32px 115px;
-}
-
-.spread {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0;
+  padding: 95px 0 82px;
+  min-height: 845px;
 }
 
 .panel {
-  padding: 24px 28px;
   min-width: 0;
+  padding: 20px 37px 18px;
 }
 
-.panel + .panel {
-  border-left: 1px solid #c49c9b;
+.panel-right {
+  border-left: 1px solid var(--line);
+  font-family: "Noto Serif Telugu",serif;
+  text-align: center;
 }
 
-.heading {
-  font-size: 29px;
+.greetings {
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 5px 0 12px;
+  text-align: center;
+}
+
+.wedding-title {
+  font-size: 26px;
+  margin: 6px 0 12px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.invitation-intro {
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 8px 0 11px;
+}
+
+.name {
+  font-size: 24px;
   font-weight: bold;
   line-height: 1.4;
-  margin: 12px 0 25px;
-}
-
-.blessings {
-  font-size: 13px;
-  font-style: italic;
-  line-height: 1.9;
-}
-
-.deity {
-  font-size: 35px;
-  color: #a35b31;
-  margin: 10px;
-}
-
-.invite-text {
-  line-height: 1.9;
-  font-style: italic;
-  font-size: 14px;
-  margin: 18px auto;
-}
-
-.names {
-  font-size: 23px;
-  font-weight: bold;
-  line-height: 1.7;
-  margin: 8px auto;
+  margin: 8px 0;
+  text-align: center;
 }
 
 .with {
-  font-size: 13px;
-  font-style: italic;
-  margin: 8px auto;
-}
-
-.small {
-  font-size: 12px;
-  line-height: 1.8;
-  margin: 12px auto;
-}
-
-.details {
+  text-align: center;
+  margin: 7px 0;
   font-size: 15px;
-  line-height: 1.9;
-  margin: 20px auto;
 }
 
-.venue {
-  text-align: left;
-  font-size: 17px;
-  line-height: 1.9;
-  margin: 28px auto;
-  max-width: 350px;
+.parent-info {
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 8px 0 14px;
 }
 
-.divider {
-  width: 65%;
-  height: 1px;
-  background: var(--maroon);
-  margin: 22px auto;
-  opacity: 0.6;
-}
-
-.telugu-heading {
-  font-size: 31px;
+.subheading {
+  font-size: 15px;
   font-weight: bold;
+  margin: 15px 0 9px;
+  text-align: center;
+}
+
+.date-details {
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 8px 0 14px;
+}
+
+.venue-details {
+  font-size: 15px;
+  line-height: 1.65;
+  margin-top: 12px;
+}
+
+.venue-details p {
+  margin: 3px 0;
+}
+
+.lunch {
+  margin: 11px 0;
+  font-size: 14px;
+}
+
+.host-english {
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 8px 0;
+}
+
+.compliments {
+  text-align: center;
+  font-size: 10px;
+  line-height: 1.55;
+  margin-top: 8px;
+}
+
+/* Telugu invitation */
+.divine-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin-bottom: 12px;
+}
+
+.divine-icons span {
+  font-size: 43px;
+  line-height: 1.25;
+}
+
+.telugu-greetings {
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 6px 0;
+}
+
+.telugu-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 9px 0 14px;
+}
+
+.telugu-copy {
+  font-size: 13px;
+  line-height: 1.75;
+  margin: 7px 0;
 }
 
 .telugu-name {
-  font-size: 22px;
+  font-size: 21px;
   font-weight: bold;
-  line-height: 2;
+  line-height: 1.55;
+  margin: 8px 0;
 }
 
-.telugu-body {
+.telugu-parents {
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 6px 0;
+}
+
+.telugu-host {
   font-size: 15px;
-  line-height: 2.2;
+  font-weight: 600;
+  line-height: 1.65;
+  margin: 9px 0;
 }
 
-.telugu-bottom {
+.telugu-ending {
+  font-size: 11px;
+  line-height: 1.7;
   border-top: 1px solid var(--maroon);
-  margin-top: 25px;
-  padding-top: 14px;
-  font-size: 13px;
-  line-height: 2.1;
+  margin: 12px 0 0;
+  padding-top: 8px;
 }
 
-.rsvp-section {
+/* Artwork inside Telugu panel */
+.procession-art {
   text-align: center;
-  padding: 12px 20px 55px;
+  margin: 14px auto 8px;
+  font-size: 27px;
+  letter-spacing: 4px;
+  line-height: 1.5;
+}
+
+/* RSVP */
+.rsvp-area {
+  text-align: center;
+  padding: 12px 20px 50px;
+}
+
+.rsvp-area h2 {
+  font-size: 21px;
+  margin-bottom: 14px;
 }
 
 .rsvp-button {
   display: inline-block;
+  background: var(--maroon);
+  color: white;
   text-decoration: none;
+  padding: 15px 42px;
+  border-radius: 7px;
   font-size: 17px;
-  padding: 15px 40px;
+  font-weight: bold;
 }
 
-@media (max-width: 800px) {
-  .invitation {
-    width: calc(100% - 20px);
-    padding: 115px 18px 100px;
+.rsvp-button:hover {
+  background: #681123;
+}
+
+/* Responsive */
+@media (max-width: 780px) {
+  .cover {
+    padding: 95px 20px 110px;
   }
 
-  .invitation::before {
-    height: 110px;
+  .cover-title { font-size: 25px; }
+
+  .cover-middle {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
   }
 
-  .spread {
+  .inside {
     grid-template-columns: 1fr;
+    padding: 95px 0 80px;
   }
 
-  .panel {
-    padding: 20px 10px;
-  }
+  .panel { padding: 20px 22px; }
 
-  .panel + .panel {
-    border-left: 0;
-    border-top: 1px solid #c49c9b;
-  }
-
-  .cover-title {
-    font-size: 26px;
-  }
-
-  .cover-addressing {
-    gap: 12px;
-  }
-
-  .names {
-    font-size: 20px;
+  .panel-right {
+    border-left: none;
+    border-top: 1px solid var(--line);
   }
 }
 
+/* Printing */
 @media print {
-  body {
-    background: white;
+  @page {
+    size: A4 landscape;
+    margin: 0;
   }
 
-  .toolbar,
-  .page-title,
-  .rsvp-section {
-    display: none;
+  body { background: white; }
+
+  .editor,
+  .page-label,
+  .rsvp-area {
+    display: none !important;
   }
 
-  .invitation {
+  .paper {
     box-shadow: none;
-    margin: 0 auto;
-    max-width: none;
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
     break-after: page;
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
@@ -371,365 +466,343 @@ button, input {
 
 <body>
 
-<div class="toolbar">
+<!-- EDITING CONTROLS -->
+<div class="editor">
+  <strong>Wedding Invitation Editor</strong>
   <button onclick="window.print()">Print / Save PDF</button>
-  <button onclick="saveHTML()">Download Edited HTML</button>
-
-  <div>
-    <label for="rsvpInput">RSVP Link:</label>
-    <input
-      id="rsvpInput"
-      type="url"
-      placeholder="Paste RSVP URL here"
-      onchange="updateRSVP()"
-    >
-    <button onclick="updateRSVP()">Set RSVP Link</button>
-  </div>
-
-  <div class="instructions">
+  <button onclick="downloadHTML()">Download Edited HTML</button>
+  <button onclick="resetEdits()">Reset Browser Edits</button>
+  <div class="editor-note">
     Click any invitation text to edit it.
     Changes are saved in this browser.
-    Download Edited HTML to publish permanent changes on GitHub.
   </div>
 </div>
 
-<h2 class="page-title">Wedding Invitation — Outer Cover</h2>
+<h2 class="page-label">1. Outer Wedding Invitation Cover</h2>
 
-<section class="invitation cover">
+<article class="paper cover" id="cover">
+  <div class="top-floral"></div>
+  <div class="bottom-floral"></div>
 
-  <div class="ganesh">ॐ</div>
-
-  <div class="telugu cover-title"
-       contenteditable="true"
-       data-edit="cover-title">
-    కుంచాల వారి పెండ్లిపిలుపు
+  <div class="cover-icons">
+    <span class="religious-symbol">ॐ</span>
+    <span class="religious-symbol">❀</span>
   </div>
 
-  <div class="telugu cover-symbol"
+  <h1 class="telugu cover-title editable"
+      contenteditable="true"
+      data-edit="cover-title">
+    కుంచాల వారి పెండ్లిపిలుపు
+  </h1>
+
+  <div class="cover-subtitle telugu editable"
        contenteditable="true"
-       data-edit="cover-symbol">
+       data-edit="cover-subtitle">
     శుభ లగ్నపత్రిక
   </div>
 
-  <div class="cover-addressing telugu">
-
-    <div class="left">
-      <div contenteditable="true" data-edit="cover-sender">
-        రోషిణి రెడ్డి
-        <br>
-        వివాహము
-        <br>
-        సాయిదీపక్ రెడ్డి
+  <div class="cover-middle telugu">
+    <div class="center">
+      <div class="religious-symbol">ॐ</div>
+      <div class="editable"
+           contenteditable="true"
+           data-edit="cover-symbol">
+        శుభ లగ్నపత్రిక<br>ఆహ్వానం
       </div>
-      <div class="deity">❀</div>
     </div>
 
-    <div>
-      <div contenteditable="true" data-edit="cover-to">
-        శ్రీమతి & శ్రీ
+    <div class="cover-recipient">
+      <div contenteditable="true"
+           class="editable"
+           data-edit="recipient-label">
+        శ్రీమతి &amp; శ్రీ
       </div>
-      <div class="recipient-lines"
+      <div class="blank-line editable"
            contenteditable="true"
-           data-edit="recipient1"></div>
-      <div class="recipient-lines"
+           data-edit="recipient-1"></div>
+      <div class="blank-line editable"
            contenteditable="true"
-           data-edit="recipient2"></div>
-      <div class="recipient-lines"
+           data-edit="recipient-2"></div>
+      <div class="blank-line editable"
            contenteditable="true"
-           data-edit="recipient3"></div>
+           data-edit="recipient-3"></div>
     </div>
-
   </div>
 
   <div class="cover-host telugu">
-
-    <p contenteditable="true" data-edit="cover-invite">
+    <div class="editable"
+         contenteditable="true"
+         data-edit="cover-invite">
       ఆహ్వానించువారు
-    </p>
+    </div>
 
-    <strong contenteditable="true" data-edit="cover-host">
-      శ్రీమతి & శ్రీ కుంచాల సువర్ణ–విఠల్ రెడ్డి
-    </strong>
+    <div class="cover-host-name editable"
+         contenteditable="true"
+         data-edit="cover-host">
+      శ్రీమతి &amp; శ్రీ కుంచాల సువర్ణ–విఠల్ రెడ్డి
+    </div>
 
-    <p contenteditable="true" data-edit="cover-address">
+    <div class="editable"
+         contenteditable="true"
+         data-edit="cover-address">
       ఇ.నెం. 4-55, ఎల్లమ్మ కాలనీ,
       గోపాలపురం, హన్మకొండ.
-    </p>
+    </div>
 
-    <p contenteditable="true" data-edit="cover-phone">
-      సెల్: 8074253839, 6301245651
-    </p>
-
-  </div>
-</section>
-
-<h2 class="page-title">Wedding Invitation — Inside Card</h2>
-
-<section class="invitation inside">
-
-<div class="spread">
-
-  <!-- ENGLISH PANEL -->
-  <div class="panel">
-
-    <div class="blessings"
+    <div class="editable"
          contenteditable="true"
-         data-edit="english-blessings">
-      Srirasthu! &nbsp; Shubhamasthu!!
-      <br>
+         data-edit="cover-phone">
+      సెల్: 8074253839, 6301245651
+    </div>
+  </div>
+
+  <div class="decorative-procession">
+    ❀ ✦ ❀
+  </div>
+</article>
+
+<h2 class="page-label">2. Inside Wedding Invitation</h2>
+
+<article class="paper inside" id="inside">
+  <div class="top-floral"></div>
+  <div class="bottom-floral"></div>
+
+  <!-- LEFT ENGLISH PANEL -->
+  <section class="panel panel-left eng">
+
+    <div class="greetings editable"
+         contenteditable="true"
+         data-edit="eng-greetings">
+      Srirasthu! &nbsp;&nbsp;
+      Shubhamasthu!! &nbsp;&nbsp;
       Avighnamasthu!!!
     </div>
 
-    <h1 class="heading"
+    <h2 class="wedding-title editable"
         contenteditable="true"
-        data-edit="english-title">
+        data-edit="eng-heading">
       Wedding Invitation
-    </h1>
+    </h2>
 
-    <div class="deity">ॐ ❀</div>
+    <p class="invitation-intro editable"
+       contenteditable="true"
+       data-edit="eng-intro">
+      We solicit your gracious presence with family
+      &amp; friends on the auspicious occasion
+      of the marriage of our Younger Daughter
+    </p>
 
-    <div class="invite-text"
-         contenteditable="true"
-         data-edit="english-invite">
-      We solicit your gracious presence with
-      family & friends on the auspicious
-      occasion of the marriage of
-      our Younger Daughter
-    </div>
-
-    <div class="names"
+    <div class="name editable"
          contenteditable="true"
          data-edit="bride">
       Chi. La. Sow. Roshini Reddy
     </div>
 
-    <div class="with"
+    <div class="with editable"
          contenteditable="true"
-         data-edit="with">
+         data-edit="eng-with">
       With
     </div>
 
-    <div class="names"
+    <div class="name editable"
          contenteditable="true"
          data-edit="groom">
       Chi. Sai Deepak Reddy
     </div>
 
-    <div class="small"
+    <div class="parent-info editable"
          contenteditable="true"
-         data-edit="groom-parents">
-      (Elder Son of Smt. & Sri Gutha
+         data-edit="eng-parents">
+      (Elder Son of Smt. &amp; Sri Gutha
       Sukanya–Chinna Kanna Reddy, Nalgonda)
     </div>
 
-    <div class="divider"></div>
+    <div class="subheading editable"
+         contenteditable="true"
+         data-edit="eng-muhurtham">
+      Sumuhurtham:
+    </div>
 
-    <div class="details">
-      <strong contenteditable="true"
-              data-edit="muhurtham-title">
-        Sumuhurtham:
-      </strong>
+    <div class="date-details editable"
+         contenteditable="true"
+         data-edit="eng-date">
+      On Friday 20th November, 2026 at 11.23 AM,
+      Uttarabhadra Nakshatram, Makara Lagnam
+    </div>
 
-      <p contenteditable="true"
-         data-edit="wedding-date">
-        On Friday 20th November, 2026
-        at 11.23 AM
-        <br>
-        Uttarabhadra Nakshatram,
-        Makara Lagnam
+    <div class="venue-details">
+      <p class="editable"
+         contenteditable="true"
+         data-edit="eng-venue">
+        Venue:<br>
+        <b>Vivanta Grand Banquet Hall</b><br>
+        Lewisville, Texas
+      </p>
+
+      <p class="lunch editable"
+         contenteditable="true"
+         data-edit="eng-lunch">
+        Lunch Follows.....
       </p>
     </div>
 
-    <div class="venue"
+    <div class="line"></div>
+
+    <div class="host-english editable"
          contenteditable="true"
-         data-edit="venue">
-      <strong>Venue:</strong>
-      <br>
-      Vivanta Grand Banquet Hall
-      <br>
-      Lewisville, Texas
-      <br><br>
-      Lunch Follows.....
+         data-edit="eng-host">
+      Smt. &amp; Sri Kunchala Suvarna–Vittal Reddy
     </div>
 
-    <div class="divider"></div>
-
-    <div class="names"
-         style="font-size:17px"
+    <div class="compliments editable"
          contenteditable="true"
-         data-edit="english-host">
-      Smt. & Sri Kunchala
-      Suvarna–Vittal Reddy
-    </div>
-
-    <div class="small"
-         contenteditable="true"
-         data-edit="english-wishes">
+         data-edit="eng-compliments">
       With Best Compliments from:
       Erri Rohitha Reddy–Suchethan Reddy,
-      Near & Dear
+      Near &amp; Dear
     </div>
 
-  </div>
+  </section>
 
-  <!-- TELUGU PANEL -->
-  <div class="panel telugu">
+  <!-- RIGHT TELUGU PANEL -->
+  <section class="panel panel-right telugu">
 
-    <div class="blessings"
+    <div class="divine-icons">
+      <span>ॐ</span>
+      <span>❀</span>
+    </div>
+
+    <div class="telugu-greetings editable"
          contenteditable="true"
-         data-edit="telugu-blessings">
-      శ్రీరస్తు !
-      శుభమస్తు !!
-      అవిఘ్నమస్తు !!!
+         lang="te"
+         data-edit="telugu-greetings">
+      శ్రీరస్తు ! &nbsp; శుభమస్తు !!
+      &nbsp; అవిఘ్నమస్తు !!!
     </div>
 
-    <h1 class="telugu-heading"
+    <h2 class="telugu-title editable"
         contenteditable="true"
+        lang="te"
         data-edit="telugu-heading">
       శుభలేఖ
-    </h1>
+    </h2>
 
-    <div class="deity">❀</div>
-
-    <div class="telugu-body"
-         contenteditable="true"
-         data-edit="telugu-opening">
-      స్వస్తిశ్రీ శుభతిథినందు
-      ది: 20-11-2026 శుక్రవారం
-      ఉ. 11-23 గంటలకు
+    <p class="telugu-copy editable"
+       contenteditable="true"
+       lang="te"
+       data-edit="telugu-opening">
+      స్వస్తిశ్రీ శుభతిథినందు ది: 20-11-2026
+      శుక్రవారం ఉ. 11-23 గంటలకు
       ఉత్తరాభాద్ర నక్షత్రము,
       మకర లగ్న శుభముహూర్తమున
-    </div>
+    </p>
 
-    <div class="divider"></div>
-
-    <div class="telugu-body"
+    <div class="telugu-name editable"
          contenteditable="true"
-         data-edit="telugu-bride-label">
-      మా కుమార్తె
-    </div>
-
-    <div class="telugu-name"
-         contenteditable="true"
+         lang="te"
          data-edit="telugu-bride">
       చి.ల.సౌ. రోషిణి రెడ్డి
     </div>
 
-    <div class="telugu-body"
-         contenteditable="true"
-         data-edit="telugu-with">
+    <p class="telugu-copy editable"
+       contenteditable="true"
+       lang="te"
+       data-edit="telugu-with">
       వివాహమునకు
-    </div>
+    </p>
 
-    <div class="telugu-name"
+    <div class="telugu-name editable"
          contenteditable="true"
+         lang="te"
          data-edit="telugu-groom">
       చి. సాయి దీపక్ రెడ్డి
     </div>
 
-    <div class="telugu-body"
-         style="font-size:13px"
-         contenteditable="true"
-         data-edit="telugu-groom-parents">
-      (శ్రీమతి & శ్రీ గుత్త సుకన్య–చిన్నకన్న
+    <p class="telugu-parents editable"
+       contenteditable="true"
+       lang="te"
+       data-edit="telugu-parents">
+      (శ్రీమతి &amp; శ్రీ గుత్త సుకన్య–చిన్నకన్న
       రెడ్డి గారి పెద్ద కుమారుడు, నల్లగొండ)
-    </div>
+    </p>
 
-    <div class="divider"></div>
+    <p class="telugu-copy editable"
+       contenteditable="true"
+       lang="te"
+       data-edit="telugu-smallprint">
+      [ఈ చిన్న తెలుగు పంక్తులను మీ అసలు కార్డు
+      నుండి సరిచూసి మార్చండి]
+    </p>
 
-    <div class="telugu-body"
-         contenteditable="true"
-         data-edit="telugu-invite">
+    <div class="line"></div>
+
+    <p class="telugu-copy editable"
+       contenteditable="true"
+       lang="te"
+       data-edit="telugu-blessings">
       బంధుమిత్రులందరూ విచ్చేసి
       వధూవరులను ఆశీర్వదించవలసినదిగా
       కోరుచున్నాము.
-    </div>
+    </p>
 
-    <div class="telugu-name"
-         style="font-size:19px"
-         contenteditable="true"
-         data-edit="telugu-host">
-      శ్రీమతి & శ్రీ కుంచాల
+    <p class="telugu-host editable"
+       contenteditable="true"
+       lang="te"
+       data-edit="telugu-host">
+      శ్రీమతి &amp; శ్రీ కుంచాల
       సువర్ణ–విఠల్ రెడ్డి
+    </p>
+
+    <div class="procession-art"
+         aria-hidden="true">
+      ❀ 🐘 ❀
     </div>
 
-    <div class="telugu-bottom"
+    <div class="telugu-ending editable"
          contenteditable="true"
-         data-edit="telugu-bottom">
-      శ్రీమతి & శ్రీ ఇర్రి రోహిత రెడ్డి–
+         lang="te"
+         data-edit="telugu-ending">
+      శ్రీమతి &amp; శ్రీ ఇర్రి రోహిత రెడ్డి–
       సుచేతన్ రెడ్డి గార్ల మరియు
       బంధు–మిత్రుల ఆహ్వానములతో....
     </div>
 
-  </div>
+  </section>
+</article>
 
-</div>
+<!-- RSVP -->
+<section class="rsvp-area">
+  <h2>We Look Forward to Celebrating With You!</h2>
 
-</section>
-
-<div class="rsvp-section">
-  <h2>Kindly RSVP</h2>
-  <p>We look forward to celebrating with you!</p>
-
-  <a id="rsvpButton"
-     class="rsvp-button"
-     href="#"
-     onclick="return openRSVP(event)"
+  <a class="rsvp-button"
+     href="https://withjoy.com/saideepak-and-roshini/rsvp?v=1"
      target="_blank"
      rel="noopener noreferrer">
     RSVP Here
   </a>
-</div>
+</section>
 
 <script>
-const STORAGE_KEY = "roshini-wedding-edit-v2";
-const DEFAULT_RSVP = "";
+const STORAGE_KEY = "roshini-invitation-v5";
 
-function editableFields() {
-  return document.querySelectorAll("[data-edit]");
-}
+const fields = () =>
+  [...document.querySelectorAll("[data-edit]")];
 
 function saveChanges() {
-  const values = {};
+  const data = {};
 
-  editableFields().forEach(el => {
-    values[el.dataset.edit] = el.innerHTML;
+  fields().forEach(el => {
+    data[el.dataset.edit] = el.innerHTML;
   });
 
-  const data = {
-    values,
-    rsvp: document.getElementById("rsvpInput").value
-  };
-
-  localStorage.setItem(
-    STORAGE_KEY,
-    JSON.stringify(data)
-  );
-}
-
-function updateRSVP() {
-  const url = document.getElementById("rsvpInput").value.trim();
-
-  if (url && !/^https?:\/\//i.test(url)) {
-    alert("Please enter a complete https:// RSVP link.");
-    return;
+  try {
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(data)
+    );
+  } catch (e) {
+    console.warn("Unable to save edits", e);
   }
-
-  document.getElementById("rsvpButton").href = url || "#";
-  saveChanges();
-}
-
-function openRSVP(event) {
-  const url = document.getElementById("rsvpButton")
-    .getAttribute("href");
-
-  if (!url || url === "#") {
-    event.preventDefault();
-    alert("The RSVP link has not been added yet.");
-    return false;
-  }
-
-  return true;
 }
 
 function restoreChanges() {
@@ -738,58 +811,46 @@ function restoreChanges() {
       localStorage.getItem(STORAGE_KEY) || "null"
     );
 
-    if (data) {
-      editableFields().forEach(el => {
-        if (data.values &&
-            Object.prototype.hasOwnProperty.call(
-              data.values, el.dataset.edit
-            )) {
-          el.innerHTML = data.values[el.dataset.edit];
-        }
-      });
+    if (!data) return;
 
-      document.getElementById("rsvpInput").value =
-        data.rsvp || DEFAULT_RSVP;
-    } else {
-      document.getElementById("rsvpInput").value =
-        DEFAULT_RSVP;
-    }
-  } catch (error) {
-    console.error("Unable to restore edits", error);
+    fields().forEach(el => {
+      if (Object.prototype.hasOwnProperty.call(
+        data, el.dataset.edit
+      )) {
+        el.innerHTML = data[el.dataset.edit];
+      }
+    });
+  } catch (e) {
+    console.warn("Unable to restore edits", e);
   }
-
-  const rsvp = document.getElementById("rsvpInput").value;
-  document.getElementById("rsvpButton").href = rsvp || "#";
 }
 
-function saveHTML() {
+function resetEdits() {
+  if (confirm("Clear browser edits and restore the published invitation?")) {
+    localStorage.removeItem(STORAGE_KEY);
+    location.reload();
+  }
+}
+
+function downloadHTML() {
   saveChanges();
 
   const clone = document.documentElement.cloneNode(true);
+  const cloneFields = clone.querySelectorAll("[data-edit]");
 
-  const originalFields = editableFields();
+  cloneFields.forEach(el => {
+    const original = fields().find(
+      f => f.dataset.edit === el.dataset.edit
+    );
 
-  originalFields.forEach(el => {
-    const key = el.dataset.edit;
-    const target = Array.from(
-      clone.querySelectorAll("[data-edit]")
-    ).find(item => item.dataset.edit === key);
-
-    if (target) {
-      target.innerHTML = el.innerHTML;
+    if (original) {
+      el.innerHTML = original.innerHTML;
     }
   });
 
-  const rsvp = document.getElementById("rsvpInput").value;
-  const clonedInput = clone.querySelector("#rsvpInput");
-  const clonedButton = clone.querySelector("#rsvpButton");
+  const html = "<!DOCTYPE html>\n" + clone.outerHTML;
 
-  clonedInput.setAttribute("value", rsvp);
-  clonedButton.setAttribute("href", rsvp || "#");
-
-  const code = "<!DOCTYPE html>\n" + clone.outerHTML;
-
-  const blob = new Blob([code], {
+  const blob = new Blob([html], {
     type: "text/html;charset=utf-8"
   });
 
@@ -809,7 +870,7 @@ function saveHTML() {
 document.addEventListener("DOMContentLoaded", () => {
   restoreChanges();
 
-  editableFields().forEach(el => {
+  fields().forEach(el => {
     el.addEventListener("input", saveChanges);
   });
 });
